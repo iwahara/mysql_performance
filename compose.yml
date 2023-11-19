@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/var/www/html
+    tty: true
+
+  mysql57:
+    image: mysql:5.7
+    volumes:
+      - mysql57-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: performance
+      MYSQL_USER: performance_user
+      MYSQL_PASSWORD: performance_password
+
+  mysql80:
+    image: mysql:8.0.28
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql80-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: performance
+      MYSQL_USER: performance_user
+      MYSQL_PASSWORD: performance_password
+volumes:
+  mysql57-data:
+  mysql80-data:

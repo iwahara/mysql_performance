@@ -1,0 +1,13 @@
+{
+  "name": "iwahara/mysql-performance",
+  "description": "MySQL5.7とMySQL8.0のパフォーマンス比較",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "Iwahara\\MysqlPerformance\\": "src/"
+    }
+  },
+  "require": {
+    "ext-pdo": "*"
+  }
+}
